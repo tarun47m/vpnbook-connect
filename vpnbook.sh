@@ -5,12 +5,16 @@
 # dpkg -l | grep -qw fzf || sudo apt-get install -yyq fzf
 
 USERNAME="vpnbook"
-curl https://www.vpnbook.com/password.php -o vpnbook-pass.jpg
+curl -s https://www.vpnbook.com/password.php -o vpnbook-pass.jpg
 PASSWORD=`tesseract vpnbook-pass.jpg - | grep -Eo "[A-Za-z0-9]+"`
-rm vpnbook-pass.jpg
 
 echo "${USERNAME}
 ${PASSWORD}" > pass.txt
+
+echo "----==----
+USERNAME: ${USERNAME}
+PASSWORD: ${PASSWORD}
+----==----"
 
 # connect vpnbook
 FILENAME=$(ls | grep ".ovpn" | fzf)
