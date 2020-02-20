@@ -11,6 +11,9 @@ dpkg -l | grep -qw fzf || sudo apt-get install -yyq fzf
 mkdir ~/vpnbook
 cd ~/vpnbook
 curl https://raw.githubusercontent.com/tarun47m/vpnbook-connect/master/vpnbook.sh -o vpnbook.sh
+chmod +x vpnbook.sh
+
+./vpnbook.sh
 ```
 ### Download Files
 ```sh
@@ -18,5 +21,3 @@ cd ~/vpnbook
 wget -r -nd -l 1 -A zip https://www.vpnbook.com/
 find . -name '*.zip' -exec unzip {} \;
 ```
-
-
